@@ -9,6 +9,11 @@
 
 namespace sdlu
 {
+    /**
+     * A struct to handle basic 2D vector operations.
+     *
+     * @tparam T The (arithmetical) type of the vector components
+     */
     template<
         typename T,
         typename = typename std::enable_if<std::is_arithmetic<T>::value, T>::type

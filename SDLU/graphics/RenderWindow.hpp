@@ -12,6 +12,11 @@
 
 namespace sdlu
 {
+    /**
+     * A class that combines the SDL_Window and SDL_Renderer and
+     * behaves similar to the sf::RenderWindow from SFML. It provides
+     * utility and wrappers for common operations on those objects.
+     */
     class RenderWindow
     {
     public:
@@ -46,7 +51,7 @@ namespace sdlu
             Uint32 windowFlags, Uint32 rendererFlags);
 
     private:
-        SDL_Window* m_pWindow;
-        SDL_Renderer* m_pRenderer;
+        SDL_Window* m_pWindow;      ///< A pointer to the window object
+        SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object
     };
 }
