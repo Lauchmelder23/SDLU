@@ -17,5 +17,5 @@ target_link_libraries(${PNAME}
 
 add_custom_command(TARGET ${PNAME}
 	POST_BUILD
-	COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/3rdparty/SDL/SDL2d.dll ${CMAKE_BINARY_DIR}/SDLU_Example/
+	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE_DIR:SDL2>/SDL2d.dll $<TARGET_FILE_DIR:SDL2>/SDLU_Example
 )
