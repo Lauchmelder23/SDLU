@@ -10,7 +10,7 @@
 namespace sdlu
 {
     /**
-     * A struct to handle basic 2D vector operations.
+     * @brief A struct to handle basic 2D vector operations.
      *
      * @tparam T The (arithmetical) type of the vector components
      */

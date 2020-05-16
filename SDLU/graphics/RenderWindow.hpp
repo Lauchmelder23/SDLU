@@ -8,11 +8,14 @@
 #include <string>
 #include <SDL.h>
 
-#include "../structures/Vector2.hpp"
+#include <structures/Vector2.hpp>
+#include <structures/Color.hpp>
 
 namespace sdlu
 {
     /**
+     * @brief A class that handles window related functionality
+     *
      * A class that combines the SDL_Window and SDL_Renderer and
      * behaves similar to the sf::RenderWindow from SFML. It provides
      * utility and wrappers for common operations on those objects.
@@ -154,6 +157,18 @@ namespace sdlu
          * @return A constant pointer to SDL_Renderer
          */
         SDL_Renderer* const GetRenderer();
+
+        /**
+         * @brief Clears the display
+         *
+         * @param[in] color The color to clear the display with
+         */
+        void Clear(const Color& color = Color::Black);
+
+        /**
+         * @brief Display the current state of the renderer to the screen
+         */
+        void Display();
 
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object

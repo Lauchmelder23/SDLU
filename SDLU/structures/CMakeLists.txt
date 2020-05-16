@@ -1,3 +1,5 @@
 target_sources(${PNAME} PRIVATE
 	${CMAKE_CURRENT_SOURCE_DIR}/Vector2.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/Color.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/Color.cpp
 )

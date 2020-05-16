@@ -1,5 +1,6 @@
 #include "RenderWindow.hpp"
-#include "../exceptions/Exceptions.hpp"
+#include <exceptions/Exceptions.hpp>
+#include <Util.hpp>
 
 namespace sdlu
 {
@@ -26,7 +27,7 @@ namespace sdlu
         Uint32 windowFlags, Uint32 rendererFlags)
     {
         // Don't create a window when it already exists
-        if (!IS_NULLPTR(m_pWindow)) return;
+        RETURN_IF_NOT_NULLPTR(m_pWindow);
 
         m_pWindow = SDL_CreateWindow(title.c_str(),
                                     SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
@@ -45,7 +46,7 @@ namespace sdlu
     void RenderWindow::Close()
     {
         // Don't destroy a window that doesn't exist
-        if (IS_NULLPTR(m_pWindow)) return;
+        RETURN_IF_NULLPTR(m_pWindow);
 
         SDL_DestroyRenderer(m_pRenderer);
         m_pRenderer = nullptr;
@@ -58,11 +59,13 @@ namespace sdlu
 
     bool RenderWindow::IsOpen()
     {
+        RETURN_IF_NULLPTR(m_pWindow, false);
         return (!SDL_GetWindowID(m_pWindow) ? false : true);
     }
 
     bool RenderWindow::PollEvent(SDL_Event* event)
     {
+        RETURN_IF_NULLPTR(m_pWindow, false);
         // Handle events before the user in case a derived
         // class decides to block the event.
         while (SDL_PollEvent(event))
@@ -86,6 +89,8 @@ namespace sdlu
 
     Vector2i RenderWindow::GetPosition()
     {
+        RETURN_IF_NULLPTR(m_pWindow, Vector2i());
+
         int x = 0, y = 0;
         SDL_GetWindowPosition(m_pWindow, &x, &y);
         return Vector2i(x, y);
@@ -93,16 +98,22 @@ namespace sdlu
 
     void RenderWindow::SetPosition(Vector2i position)
     {
+        RETURN_IF_NULLPTR(m_pWindow);
+
         SDL_SetWindowPosition(m_pWindow, position.x, position.y);
     }
 
     void RenderWindow::SetPosition(int x, int y)
     {
+        RETURN_IF_NULLPTR(m_pWindow);
+
         SDL_SetWindowPosition(m_pWindow, x, y);
     }
 
     Vector2u RenderWindow::GetSize()
     {
+        RETURN_IF_NULLPTR(m_pWindow, Vector2u());
+
         int x = 0, y = 0;
         SDL_GetWindowSize(m_pWindow, &x, &y);
         return Vector2u(x, y);
@@ -110,21 +121,29 @@ namespace sdlu
 
     void RenderWindow::SetSize(Vector2u size)
     {
+        RETURN_IF_NULLPTR(m_pWindow);
+
         SDL_SetWindowSize(m_pWindow, size.x, size.y);
     }
 
     void RenderWindow::SetSize(unsigned int width, unsigned int height)
     {
+        RETURN_IF_NULLPTR(m_pWindow);
+
         SDL_SetWindowSize(m_pWindow, width, height);
     }
 
     std::string RenderWindow::GetTitle()
     {
+        RETURN_IF_NULLPTR(m_pWindow, "");
+
         return SDL_GetWindowTitle(m_pWindow);
     }
 
     void RenderWindow::SetTitle(std::string title)
     {
+        RETURN_IF_NULLPTR(m_pWindow);
+
         SDL_SetWindowTitle(m_pWindow, title.c_str());
     }
 
@@ -136,5 +155,20 @@ namespace sdlu
     SDL_Renderer* const RenderWindow::GetRenderer()
     {
         return m_pRenderer;
+    }
+
+    void RenderWindow::Clear(const Color& color)
+    {
+        RETURN_IF_NULLPTR(m_pWindow);
+
+        SDL_SetRenderDrawColor(m_pRenderer, color.r, color.g, color.b, color.a);
+        SDL_RenderClear(m_pRenderer);
+    }
+
+    void RenderWindow::Display()
+    {
+        RETURN_IF_NULLPTR(m_pWindow);
+
+        SDL_RenderPresent(m_pRenderer);
     }
 }

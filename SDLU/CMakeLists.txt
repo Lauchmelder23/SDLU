@@ -1,8 +1,10 @@
 set(PNAME SDLU)
 
 add_library(${PNAME}
-	alibi.cpp SDLU.hpp
-)
+	alibi.cpp SDLU.hpp Util.hpp
+ "structures/Color.cpp")
+
+set_property(TARGET ${PNAME} PROPERTY CXX_STANDARD 17)
 
 target_include_directories(${PNAME} PRIVATE
 	${PROJECT_SOURCE_DIR}/3rdparty/SDL/include
