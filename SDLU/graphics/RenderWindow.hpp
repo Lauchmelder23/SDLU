@@ -141,6 +141,20 @@ namespace sdlu
          */
         void SetTitle(std::string title);
 
+        /**
+         * @brief Returns a constant pointer to the SDL_Window
+         *
+         * @return A constant pointer to SDL_Window
+         */
+        SDL_Window* const GetWindow();
+
+        /**
+         * @brief Returns a constant pointer to the SDL_Renderer
+         *
+         * @return A constant pointer to SDL_Renderer
+         */
+        SDL_Renderer* const GetRenderer();
+
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
         SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object

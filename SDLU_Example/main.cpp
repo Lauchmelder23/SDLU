@@ -14,6 +14,7 @@ int main(int argc, char** argv)
     std::cout << "Vector2f: " << vec.x << ", " << vec.y << std::endl;
 
     MyWindow window(800, 800, "Test");
+    SDL_SetWindowTitle(window.GetWindow(), "New Title");
 
     SDL_Event event;
     while (window.WaitEvent(&event))
