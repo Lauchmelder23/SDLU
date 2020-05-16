@@ -12,5 +12,8 @@ int main(int argc, char** argv)
 
     vec *= 1.8f;
     std::cout << "Vector2f: " << vec.x << ", " << vec.y << std::endl;
+
+    sdlu::RenderWindow window;
+    window.Create(sdlu::Vec2u(800, 800), "First test window", NULL, NULL);
     return 0;
 }

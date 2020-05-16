@@ -1,4 +1,5 @@
 #include "RenderWindow.hpp"
+#include "../exceptions/Exceptions.hpp"
 
 #define IS_NULLPTR( x ) (x == nullptr)
 
@@ -28,17 +29,11 @@ namespace sdlu
                                     SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                     dimension.x, dimension.y,
                                     windowFlags);
-        if (IS_NULLPTR(m_pWindow))
-        {
-            // TODO: Implement exception
-            return
-        }
+        THROW_IF(IS_NULLPTR(m_pWindow),
+            ObjectCreationException("Failed to create SDL_Window."));
 
         m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, rendererFlags);
-        if (IS_NULLPTR(m_pRenderer))
-        {
-            // TODO: Implement exception
-            return
-        }
+        THROW_IF(IS_NULLPTR(m_pRenderer),
+            ObjectCreationException("Failed to create SDL_Renderer."));
     }
 }

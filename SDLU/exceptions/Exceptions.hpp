@@ -8,5 +8,5 @@
 
 #include "ObjectCreationException.hpp"
 
-#define THROW_IF_NOT( condition, exception ) ( condition ? throw execption : false )
-#define THROW_IF( condition, exception ) ( condition ? false : throw execption )
+#define THROW_IF_NOT( condition, exception ) ( condition ? throw exception : false )
+#define THROW_IF( condition, exception ) ( condition ? false : throw exception )
