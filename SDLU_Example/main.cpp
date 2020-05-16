@@ -2,6 +2,8 @@
 
 int main(int argc, char** argv)
 {
+    SDL_Init(SDL_INIT_VIDEO);
+
     sdlu::Vector2f vecA(.4f, -2.3f);
     sdlu::Vector2f vecB(-8.9f, 0.003f);
     sdlu::Vector2f vec = vecA + vecB;
@@ -17,7 +19,14 @@ int main(int argc, char** argv)
     while (window.WaitEvent(&event))
     {
         std::cout << event.type << std::endl;
+        if (event.window.event == SDL_WINDOWEVENT_CLOSE)
+        {
+            window.Close();
+            break;
+        }
     }
+
+    SDL_Quit();
 
     return 0;
 }

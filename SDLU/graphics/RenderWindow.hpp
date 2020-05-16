@@ -126,6 +126,21 @@ namespace sdlu
          */
         void SetSize(unsigned int width, unsigned int height);
 
+
+        /**
+         * @brief Gets the current window title
+         * 
+         * @return The title of the widnow
+         */
+        std::string GetTitle();
+
+        /**
+         * @brief Sets a new window title
+         *
+         * @param[in] title The new window title
+         */
+        void SetTitle(std::string title);
+
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
         SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object

@@ -5,11 +5,15 @@ namespace sdlu
 {
     RenderWindow::RenderWindow()
     {
+        m_pWindow = nullptr;
+        m_pRenderer = nullptr;
     }
 
     RenderWindow::RenderWindow(Vector2u dimension, const std::string& title,
         Uint32 windowFlags, Uint32 rendererFlags)
     {
+        m_pWindow = nullptr;
+        m_pRenderer = nullptr;
         Create(dimension, title, windowFlags, rendererFlags);
     }
 
@@ -21,6 +25,9 @@ namespace sdlu
     void RenderWindow::Create(Vector2u dimension, const std::string& title,
         Uint32 windowFlags, Uint32 rendererFlags)
     {
+        // Don't create a window when it already exists
+        if (!IS_NULLPTR(m_pWindow)) return;
+
         m_pWindow = SDL_CreateWindow(title.c_str(),
                                     SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                     dimension.x, dimension.y,
@@ -37,14 +44,21 @@ namespace sdlu
 
     void RenderWindow::Close()
     {
+        // Don't destroy a window that doesn't exist
+        if (IS_NULLPTR(m_pWindow)) return;
+
+        SDL_DestroyRenderer(m_pRenderer);
+        m_pRenderer = nullptr;
+
         SDL_DestroyWindow(m_pWindow);
+        m_pWindow = nullptr;
 
         OnClose();
     }
 
     bool RenderWindow::IsOpen()
     {
-        return !IS_NULLPTR(m_pWindow);
+        return (!SDL_GetWindowID(m_pWindow) ? false : true);
     }
 
     bool RenderWindow::PollEvent(SDL_Event* event)
@@ -89,8 +103,8 @@ namespace sdlu
 
     Vector2u RenderWindow::GetSize()
     {
-        unsigned int x = 0, y = 0;
-        SDL_GetWindowSize(m_pWindow, x, y);
+        int x = 0, y = 0;
+        SDL_GetWindowSize(m_pWindow, &x, &y);
         return Vector2u(x, y);
     }
 
@@ -102,5 +116,15 @@ namespace sdlu
     void RenderWindow::SetSize(unsigned int width, unsigned int height)
     {
         SDL_SetWindowSize(m_pWindow, width, height);
+    }
+
+    std::string RenderWindow::GetTitle()
+    {
+        return SDL_GetWindowTitle(m_pWindow);
+    }
+
+    void RenderWindow::SetTitle(std::string title)
+    {
+        SDL_SetWindowTitle(m_pWindow, title.c_str());
     }
 }
