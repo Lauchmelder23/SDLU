@@ -13,3 +13,4 @@ target_link_libraries(${PNAME} PRIVATE
 )
 
 add_subdirectory(structures)
+add_subdirectory(graphics)

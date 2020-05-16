@@ -4,7 +4,7 @@
  * @author Lauchmelder23
  * @date 16.05.2020
  */
-
+#pragma once
 #include <type_traits>
 
 namespace sdlu
