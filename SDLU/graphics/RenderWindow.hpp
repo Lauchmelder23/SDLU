@@ -28,8 +28,8 @@ namespace sdlu
         /**
          * @brief Creates a window and renderer with the given parameters
          *
-         * @param dimension A vector containing the width and height
-         * @param title     The title of the create window
+         * @param[in] dimension A vector containing the width and height
+         * @param[in] title     The title of the create window
          */
         RenderWindow(Vector2u dimension, const std::string& title, 
             Uint32 windowFlags, Uint32 rendererFlags);
@@ -46,8 +46,8 @@ namespace sdlu
          * they were already created the function does nothing and returns.
          * If it fails to create either, an ObjectCreationException is thrown.
          *
-         * @param dimension A vector containing the width and height
-         * @param title     The title of the create window
+         * @param[in] dimension A vector containing the width and height
+         * @param[in] title     The title of the create window
          */
         void Create(Vector2u dimension, const std::string& title, 
             Uint32 windowFlags, Uint32 rendererFlags);
@@ -64,7 +64,21 @@ namespace sdlu
          */
         bool IsOpen();
 
+        /**
+         * @brief A non-blocking event polling function
+         *
+         * @param[out] event An object to write the latest event to
+         * @return True if there was an event, False if there wasn't
+         */
         bool PollEvent(SDL_Event& event);
+
+        /**
+         * @brief A blocking event polling function
+         *
+         * @param[out] event An object to write the latest event to
+         * @return True if there was an event, False if there wasn't
+         */
+        bool WaitEvent(SDL_Event& event);
 
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object

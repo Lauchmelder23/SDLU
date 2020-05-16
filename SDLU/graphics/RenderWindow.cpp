@@ -63,4 +63,9 @@ namespace sdlu
         event = NULL;
         return false;
     }
+
+    bool RenderWindow::WaitEvent(SDL_Event& event)
+    {
+        while (!PollEvent(event)) continue;
+    }
 }
