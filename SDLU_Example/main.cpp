@@ -6,6 +6,7 @@ int main(int argc, char** argv)
 
     MyWindow window(800, 800, "Test");
     SDL_SetWindowTitle(window.GetWindow(), "New Title");
+    window.SetMouseCursorGrabbed(true);
 
     SDL_Event event;
     while (window.IsOpen())

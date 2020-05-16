@@ -171,4 +171,31 @@ namespace sdlu
 
         SDL_RenderPresent(m_pRenderer);
     }
+
+    void RenderWindow::SetVisible(bool visible)
+    {
+        RETURN_IF_NULLPTR(m_pWindow);
+        if (visible)
+            SDL_ShowWindow(m_pWindow);
+        else
+            SDL_HideWindow(m_pWindow);
+    }
+
+    void RenderWindow::SetVsync(bool vsync)
+    {
+        // SDL actually doesn't allow you to change the VSync
+        // flag of a Renderer after it's been created. This
+        // Changes it globally for all other windows
+        SDL_GL_SetSwapInterval(vsync);
+    }
+
+    void RenderWindow::SetMouseCursorVisible(bool visible)
+    {
+        SDL_ShowCursor(visible);
+    }
+
+    void RenderWindow::SetMouseCursorGrabbed(bool grabbed)
+    {
+        SDL_SetWindowGrab(m_pWindow, grabbed ? SDL_TRUE : SDL_FALSE);
+    }
 }

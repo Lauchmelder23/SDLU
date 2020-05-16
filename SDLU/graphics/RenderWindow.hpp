@@ -170,6 +170,34 @@ namespace sdlu
          */
         void Display();
 
+        /**
+         * @brief Set the windows visibility
+         *
+         * @param[in] visible The new visibility setting
+         */
+        void SetVisible(bool visible);
+
+        /**
+         * @brief (De)activates VSync !globally!
+         *
+         * @param[in] vsync Wether to enable or disable vsync
+         */
+        void SetVsync(bool vsync);
+
+        /**
+         * @brief Hides/Shows the mouse cursor inside the windos
+         *
+         * @param[in] visible The new visibility of the cursor
+         */
+        void SetMouseCursorVisible(bool visible);
+
+        /**
+         * @brief Traps the mouse cursor inside the window
+         *
+         * @param[in] grabbed Wether to (un)trap the cursor
+         */
+        void SetMouseCursorGrabbed(bool grabbed);
+
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
         SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object
