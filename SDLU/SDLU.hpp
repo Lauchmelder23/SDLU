@@ -1,3 +1,3 @@
 #pragma once
 
-#include "SDL.h"
+#include "structures/Vector2.hpp"
