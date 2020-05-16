@@ -37,6 +37,8 @@ namespace sdlu
         RenderWindow(const RenderWindow& other) = delete;
         RenderWindow(const RenderWindow&& other) = delete;
 
+        virtual ~RenderWindow();
+
         /**
          * @brief Creates the window and renderer.
          *
@@ -50,8 +52,40 @@ namespace sdlu
         void Create(Vector2u dimension, const std::string& title, 
             Uint32 windowFlags, Uint32 rendererFlags);
 
-    private:
+        /**
+         * @brief Destroys the window and renderer.
+         */
+        void Close();
+
+        /**
+         * @brief Wether or not the window object is created
+         *
+         * @return True if the window is open, False if not
+         */
+        bool IsOpen();
+
+    protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
         SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object
+
+    protected:
+        /**
+         * @brief This function is called after Create() finishes
+         */
+        virtual void OnCreate();
+
+        /**
+         * @brief This function is called after a SDL_WINDOWEVENT_RESIZED is polled.
+         *        (PollEvent() must be called for this to work)
+         *
+         * @return True if the resize event should be popped from the event queue before
+                   returning the polled event to the user
+         */
+        virtual bool OnResize();
+
+        /**
+         * @brief This function is called after Close() finishes.
+         */
+        virtual void OnClose();
     };
 }

@@ -8,5 +8,7 @@
 
 #include "ObjectCreationException.hpp"
 
-#define THROW_IF_NOT( condition, exception ) ( condition ? throw exception : false )
-#define THROW_IF( condition, exception ) ( condition ? false : throw exception )
+#define IS_NULLPTR( x ) (x == nullptr)
+
+#define THROW_IF( condition, exception ) ( condition ? throw exception : false)
+#define THROW_IF_NOT( condition, exception ) ( THROW_IF(!condition, exception) )

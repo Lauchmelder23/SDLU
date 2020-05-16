@@ -1,7 +1,5 @@
 #include "header.hpp"
 
-#include <iostream>
-
 int main(int argc, char** argv)
 {
     sdlu::Vector2f vecA(.4f, -2.3f);
@@ -13,7 +11,13 @@ int main(int argc, char** argv)
     vec *= 1.8f;
     std::cout << "Vector2f: " << vec.x << ", " << vec.y << std::endl;
 
-    sdlu::RenderWindow window;
-    window.Create(sdlu::Vec2u(800, 800), "First test window", NULL, NULL);
+    try {
+        MyWindow window(800, 800, "Test");
+    }
+    catch (sdlu::ObjectCreationException e)
+    {
+        std::cerr << e.what() << std::endl;
+        std::cerr << SDL_GetError() << std::endl;
+    }
     return 0;
 }
