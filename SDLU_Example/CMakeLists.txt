@@ -10,9 +10,9 @@ target_include_directories(${PNAME} PRIVATE
 )
 
 target_link_libraries(${PNAME}
-	${CMAKE_BINARY_DIR}/3rdparty/SDL/SDL2d.lib
-	${CMAKE_BINARY_DIR}/3rdparty/SDL/SDL2maind.lib
-	${CMAKE_BINARY_DIR}/SDLU/SDLU.lib
+	SDLU
+	SDL2
+	SDL2main
 )
 
 add_custom_command(TARGET ${PNAME}

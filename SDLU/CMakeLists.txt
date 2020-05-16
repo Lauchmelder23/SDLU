@@ -12,7 +12,7 @@ target_include_directories(${PNAME} PRIVATE
 )
 
 target_link_libraries(${PNAME} PRIVATE
-	${CMAKE_BINARY_DIR}/3rdparty/SDL/SDL2d.lib
+	SDL2
 )
 
 add_subdirectory(structures)
