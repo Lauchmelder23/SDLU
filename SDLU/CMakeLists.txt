@@ -13,5 +13,6 @@ target_link_libraries(${PNAME} PRIVATE
 	${CMAKE_BINARY_DIR}/3rdparty/SDL/SDL2d.lib
 )
 
+add_subdirectory(exceptions)
 add_subdirectory(structures)
 add_subdirectory(graphics)
