@@ -70,15 +70,15 @@ namespace sdlu
          * @param[out] event An object to write the latest event to
          * @return True if there was an event, False if there wasn't
          */
-        bool PollEvent(SDL_Event& event);
+        bool PollEvent(SDL_Event* event);
 
         /**
          * @brief A blocking event polling function
          *
          * @param[out] event An object to write the latest event to
-         * @return True if there was an event, False if there wasn't
+         * @return True if an event was polled
          */
-        bool WaitEvent(SDL_Event& event);
+        bool WaitEvent(SDL_Event* event);
 
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object

@@ -7,7 +7,9 @@ class MyWindow :
 {
 public:
     MyWindow(Uint32 width, Uint32 height, const char* title) :
-        RenderWindow(sdlu::Vector2u(width, height), title, NULL, NULL)
+        RenderWindow(sdlu::Vector2u(width, height), title, 
+            SDL_WINDOW_RESIZABLE, 
+            NULL)
     {
         // Empty
     }
@@ -21,7 +23,7 @@ void sdlu::RenderWindow::OnCreate()
 bool sdlu::RenderWindow::OnResize()
 {
     std::cout << "Window was Resized!" << std::endl;
-    return false;
+    return true;
 }
 
 void sdlu::RenderWindow::OnClose()

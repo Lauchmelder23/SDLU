@@ -47,15 +47,15 @@ namespace sdlu
         return !IS_NULLPTR(m_pWindow);
     }
 
-    bool RenderWindow::PollEvent(SDL_Event& event)
+    bool RenderWindow::PollEvent(SDL_Event* event)
     {
         // Handle events before the user in case a derived
         // class decides to block the event.
-        while (SDL_PollEvent(&event))
+        while (SDL_PollEvent(event))
         {
-            switch(event.type)
+            switch(event->window.event)
             {
-                case SDL_WINDOWEVENT_RESIZED: OnResize() ? break : return true;
+                case SDL_WINDOWEVENT_RESIZED: if (!OnResize()) return true; break;
                 default: return true;
             }
         }
@@ -64,8 +64,9 @@ namespace sdlu
         return false;
     }
 
-    bool RenderWindow::WaitEvent(SDL_Event& event)
+    bool RenderWindow::WaitEvent(SDL_Event* event)
     {
         while (!PollEvent(event)) continue;
+        return true;
     }
 }
