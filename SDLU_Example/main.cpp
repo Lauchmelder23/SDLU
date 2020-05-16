@@ -10,5 +10,7 @@ int main(int argc, char** argv)
 
     std::cout << "Vector2f: " << vec.x << ", " << vec.y << std::endl;
 
+    vec *= 1.8f;
+    std::cout << "Vector2f: " << vec.x << ", " << vec.y << std::endl;
     return 0;
 }
