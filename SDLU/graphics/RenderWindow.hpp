@@ -64,6 +64,8 @@ namespace sdlu
          */
         bool IsOpen();
 
+        bool PollEvent(SDL_Event& event);
+
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
         SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object

@@ -46,4 +46,21 @@ namespace sdlu
     {
         return !IS_NULLPTR(m_pWindow);
     }
+
+    bool RenderWindow::PollEvent(SDL_Event& event)
+    {
+        // Handle events before the user in case a derived
+        // class decides to block the event.
+        while (SDL_PollEvent(&event))
+        {
+            switch(event.type)
+            {
+                case SDL_WINDOWEVENT_RESIZED: OnResize() ? break : return true;
+                default: return true;
+            }
+        }
+
+        event = NULL;
+        return false;
+    }
 }
