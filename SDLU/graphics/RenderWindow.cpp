@@ -69,4 +69,38 @@ namespace sdlu
         while (!PollEvent(event)) continue;
         return true;
     }
+
+    Vector2i RenderWindow::GetPosition()
+    {
+        int x = 0, y = 0;
+        SDL_GetWindowPosition(m_pWindow, &x, &y);
+        return Vector2i(x, y);
+    }
+
+    void RenderWindow::SetPosition(Vector2i position)
+    {
+        SDL_SetWindowPosition(m_pWindow, position.x, position.y);
+    }
+
+    void RenderWindow::SetPosition(int x, int y)
+    {
+        SDL_SetWindowPosition(m_pWindow, x, y);
+    }
+
+    Vector2u RenderWindow::GetSize()
+    {
+        unsigned int x = 0, y = 0;
+        SDL_GetWindowSize(m_pWindow, x, y);
+        return Vector2u(x, y);
+    }
+
+    void RenderWindow::SetSize(Vector2u size)
+    {
+        SDL_SetWindowSize(m_pWindow, size.x, size.y);
+    }
+
+    void RenderWindow::SetSize(unsigned int width, unsigned int height)
+    {
+        SDL_SetWindowSize(m_pWindow, width, height);
+    }
 }

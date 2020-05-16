@@ -80,6 +80,52 @@ namespace sdlu
          */
         bool WaitEvent(SDL_Event* event);
 
+
+        /**
+         * @brief Returns the current position of the window
+         *
+         * @return A vector with the current position relative to the top left corner of the display
+         */
+        Vector2i GetPosition();
+
+        /**
+         * @brief Sets a new window position
+         *
+         * @param[in] position A vector with the new position
+         */
+        void SetPosition(Vector2i position);
+
+        /**
+         * @brief Sets a new window position
+         *
+         * @param[in] x The new x position
+         * @param[in] y The new y position
+         */
+        void SetPosition(int x, int y);
+
+        
+        /**
+         * @brief Gets the current window size
+         *
+         * @return A vector with the windows size
+         */
+        Vector2u GetSize();
+
+        /**
+         * @brief Sets a new window size
+         * 
+         * @param[in] size A vector with the new size
+         */
+        void SetSize(Vector2u size);
+
+        /**
+         * @brief Sets a new window size
+         *
+         * @param[in] width  The new width of the window
+         * @param[in] height The new height of the window
+         */
+        void SetSize(unsigned int width, unsigned int height);
+
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
         SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object
