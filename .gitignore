@@ -1,3 +1,4 @@
 *.json
 out/
 .vs/
+doc/
