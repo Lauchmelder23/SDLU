@@ -17,6 +17,8 @@ namespace sdlu
         T x; ///< x component
         T y; ///< y component
 
+        //################## CONSTRUCTORS ##################//
+
         /// Initializes a zero vector
         Vector2() :
             x(0), y(0)
@@ -37,7 +39,106 @@ namespace sdlu
         {
             // Empty
         }
+
+
+        //################## OPERATORS ##################//
+
+        friend Vector2<T> operator-(const Vector2<T>& right)
+        {
+            return Vector2<T>(-right.x, -right.y);
+        }
+
+        friend Vector2<T> operator+(const Vector2<T>& left, const Vector2<T>& right)
+        {
+            return Vector2<T>(left.x + right.x, left.y + right.y);
+        }
+
+        friend Vector2<T> operator-(const Vector2<T>& left, const Vector2<T>& right)
+        {
+            return left + (-right)
+        }
+
+        friend Vector2<T> operator*(const Vector2<T>& left, const Vector2<T>& right)
+        {
+            return Vector2<T>(left.x * right.x, left.y * right.y);
+        }
+
+        friend Vector2<T> operator/(const Vector2<T>& left, const Vector2<T>& right)
+        {
+            return Vector2<T>(left.x / right.x, left.y / right.y);
+        }
+
+        friend Vector2<T> operator*(T left, const Vector2<T>& right)
+        {
+            return Vector2<T>(left * right.x, left * right.y);
+        }
+
+        friend Vector2<T> operator*(const Vector2<T>& left, T right)
+        {
+            return right * left;
+        }
+
+        friend Vector2<T> operator/(const Vector2<T>& left, T right)
+        {
+            return Vector2<T>(left.x / right, left.y / right);
+        }
+
+        friend Vector2<T>& operator+=(Vector2<T>& left, const Vector2<T>& right)
+        {
+            left.x += right.x;
+            left.y += right.y;
+            return left;
+        }
+
+        friend Vector2<T>& operator-=(Vector2<T>& left, const Vector2<T>& right)
+        {
+            left += (-right);
+            return left;
+        }
+
+        friend Vector2<T>& operator*=(Vector2<T>& left, const Vector2<T>& right)
+        {
+            left.x *= right.x;
+            left.y *= right.y;
+            return left;
+        }
+
+        friend Vector2<T>& operator/(Vector2<T>& left, const Vector2<T>& right)
+        {
+            left.x /= right.x;
+            left.y /= right.y;
+            return left;
+        }
+
+        friend Vector2<T>& operator*=(Vector2<T>& left, T right)
+        {
+            left.x *= right;
+            left.y *= right;
+            return left;
+        }
+
+        friend Vector2<T>& operator/=(Vector2<T>& left, T right)
+        {
+            left.x /= right;
+            left.y /= right;
+            return left;
+        }
+
+        friend bool operator==(const Vector2<T>& left, const Vector2<T>& right)
+        {
+            return ((left.x == right.x) && (left.y == right.y));
+        }
+
+        friend bool operator!=(const Vector2<T>& left, const Vector2<T>& right)
+        {
+            return !(left == right);
+        }
     };
+
+
+    
+
+    //################## TYPEDEFS ##################//
 
     typedef Vector2<unsigned int>   Vector2u, Vec2u;
     typedef Vector2<int>            Vector2i, Vec2i;
