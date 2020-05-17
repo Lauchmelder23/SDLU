@@ -93,4 +93,86 @@ namespace sdlu
 
         return output;
     }
+
+    Color operator+(const Color& left, const Color& right)
+    {
+        return Color(left.r + right.r,
+            left.g + right.g,
+            left.b + right.b,
+            left.a + right.a);
+    }
+
+    Color operator-(const Color& left, const Color& right)
+    {
+        return Color(left.r - right.r,
+            left.g - right.g,
+            left.b - right.b,
+            left.a - right.a);
+    }
+
+    Color operator*(const Color& left, const Color& right)
+    {
+        return Color(left.r * right.r,
+            left.g * right.g,
+            left.b * right.b,
+            left.a * right.a);
+    }
+
+    Color operator/(const Color& left, const Color& right)
+    {
+        return Color(left.r / right.r,
+            left.g / right.g,
+            left.b / right.b,
+            left.a / right.a);
+    }
+
+    Color& operator+=(Color& left, const Color& right)
+    {
+        left.r += right.r;
+        left.g += right.g;
+        left.b += right.b;
+        left.a += right.a;
+
+        return left;
+    }
+
+    Color& operator-=(Color& left, const Color& right)
+    {
+        left.r -= right.r;
+        left.g -= right.g;
+        left.b -= right.b;
+        left.a -= right.a;
+
+        return left;
+    }
+
+    Color& operator*=(Color& left, const Color& right)
+    {
+        left.r *= right.r;
+        left.g *= right.g;
+        left.b *= right.b;
+        left.a *= right.a;
+
+        return left;
+    }
+
+    Color& operator/=(Color& left, const Color& right)
+    {
+        left.r /= right.r;
+        left.g /= right.g;
+        left.b /= right.b;
+        left.a /= right.a;
+
+        return left;
+    }
+
+    bool operator==(const Color& left, const Color& right)
+    {
+        return ((left.r == right.r) && (left.g == right.g) && (left.b == right.b) && (left.a == right.a));
+    }
+
+    bool operator!=(const Color& left, const Color& right)
+    {
+        return !(left == right);
+    }
 }

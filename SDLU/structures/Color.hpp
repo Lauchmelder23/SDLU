@@ -73,5 +73,98 @@ namespace sdlu
         static const Color White;         ///< Default Color White   (#FFFFFFFF)
         
         static const Color Transparent;   ///< Default Color Transparent (#00000000)
+
+
+        /////////////////// OPERATOR OVERLOADS ///////////////////
+
+        /**
+         * @brief Componentwise color addition
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return left + right
+         */
+        friend Color operator+(const Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color subtraction
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return left - right
+         */
+        friend Color operator-(const Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color multiplication
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return left * right
+         */
+        friend Color operator*(const Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color division
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return left / right
+         */
+        friend Color operator/(const Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color addition
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return left += right
+         */
+        friend Color& operator+=(Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color subtraction
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return left -= right
+         */
+        friend Color& operator-=(Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color multiplication
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return left *= right
+         */
+        friend Color& operator*=(Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color division
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return left /= right
+         */
+        friend Color& operator/=(Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color comparison
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return True if the respective color components are equal, False if not
+         */
+        friend bool operator==(const Color& left, const Color& right);
+
+        /**
+         * @brief Componentwise color comparison
+         *
+         * @param[in] left  Left operand
+         * @param[in] right Right operand
+         * @return False if the respective color components are equal, True if not
+         */
+        friend bool operator!=(const Color& left, const Color& right);
     };
 }
