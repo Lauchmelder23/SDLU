@@ -9,6 +9,7 @@ int main(int argc, char** argv)
     window.SetMouseCursorGrabbed(true);
 
     SDL_Event event;
+    float t = 0.f;
     while (window.IsOpen())
     {
         while (window.PollEvent(&event))
@@ -21,9 +22,10 @@ int main(int argc, char** argv)
             }
         }
 
-        window.Clear(sdlu::Color::Magenta);
+        window.Clear(sdlu::Color::FromHSV(floor(t), 100, 100));
 
         window.Display();
+        t += 0.01;
     }
 
     SDL_Quit();

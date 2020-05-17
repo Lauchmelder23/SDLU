@@ -53,6 +53,13 @@ namespace sdlu
          */
         Uint32 ToInt();
 
+        /**
+         * @brief Generate color from HSV values
+         *
+         * @return An RGBA Color object generated from HSV
+         */
+        static Color& FromHSV(Uint16 h, Uint8 s, Uint8 v);
+
 
         /////////////////// DEFAULT COLORS ///////////////////
 
