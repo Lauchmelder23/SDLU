@@ -96,26 +96,26 @@ namespace sdlu
 
     Color operator+(const Color& left, const Color& right)
     {
-        return Color(left.r + right.r,
-            left.g + right.g,
-            left.b + right.b,
-            left.a + right.a);
+        return Color((UINT8_MAX - left.r) < right.r ? 255 : left.r + right.r,
+            (UINT8_MAX - left.g) < right.g ? 255 : left.g + right.g,
+            (UINT8_MAX - left.b) < right.b ? 255 : left.b + right.b,
+            (UINT8_MAX - left.a) < right.a ? 255 : left.a + right.a);
     }
 
     Color operator-(const Color& left, const Color& right)
     {
-        return Color(left.r - right.r,
-            left.g - right.g,
-            left.b - right.b,
-            left.a - right.a);
+        return Color(left.r < right.r ? 0 : left.r - right.r,
+            left.g < right.g ? 0 : left.g - right.g,
+            left.b < right.b ? 0 : left.b - right.b,
+            left.a < right.a ? 0 : left.a - right.a);
     }
 
     Color operator*(const Color& left, const Color& right)
     {
-        return Color(left.r * right.r,
-            left.g * right.g,
-            left.b * right.b,
-            left.a * right.a);
+        return Color((UINT8_MAX / left.r) < right.r ? 255 : left.r * right.r,
+            (UINT8_MAX / left.g) < right.g ? 255 : left.g * right.g,
+            (UINT8_MAX / left.b) < right.b ? 255 : left.b * right.b,
+            (UINT8_MAX / left.a) < right.a ? 255 : left.a * right.a);
     }
 
     Color operator/(const Color& left, const Color& right)
@@ -128,41 +128,25 @@ namespace sdlu
 
     Color& operator+=(Color& left, const Color& right)
     {
-        left.r += right.r;
-        left.g += right.g;
-        left.b += right.b;
-        left.a += right.a;
-
+        left = left + right;
         return left;
     }
 
     Color& operator-=(Color& left, const Color& right)
     {
-        left.r -= right.r;
-        left.g -= right.g;
-        left.b -= right.b;
-        left.a -= right.a;
-
+        left = left - right;
         return left;
     }
 
     Color& operator*=(Color& left, const Color& right)
     {
-        left.r *= right.r;
-        left.g *= right.g;
-        left.b *= right.b;
-        left.a *= right.a;
-
+        left = left * right;
         return left;
     }
 
     Color& operator/=(Color& left, const Color& right)
     {
-        left.r /= right.r;
-        left.g /= right.g;
-        left.b /= right.b;
-        left.a /= right.a;
-
+        left = left / right;
         return left;
     }
 
