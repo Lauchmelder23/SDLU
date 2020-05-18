@@ -1,6 +1,6 @@
 #include "RenderWindow.hpp"
 
-#include <string>
+#include <cstring>
 
 #include <exceptions/Exceptions.hpp>
 #include <Util.hpp>
