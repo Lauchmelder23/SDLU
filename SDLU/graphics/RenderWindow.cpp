@@ -1,4 +1,7 @@
 #include "RenderWindow.hpp"
+
+#include <string>
+
 #include <exceptions/Exceptions.hpp>
 #include <Util.hpp>
 
