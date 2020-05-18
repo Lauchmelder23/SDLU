@@ -1,4 +1,4 @@
-#include "..\SDLU\graphics\RenderWindow.hpp"
+#include <SDLU.hpp>
 #pragma once
 #include "SDLU.hpp"
 #include <iostream>
