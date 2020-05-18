@@ -1,5 +1,8 @@
 #include "header.hpp"
 
+#include <math.h>
+#include <cmath>
+
 int main(int argc, char** argv)
 {
     SDL_Init(SDL_INIT_VIDEO);
@@ -43,7 +46,7 @@ int main(int argc, char** argv)
             }
         }
 
-        window.Clear(sdlu::Color::FromHSV(floor(t), 100, 100));
+        window.Clear(sdlu::Color::FromHSV(std::floor(t), 100, 100));
 
         window.Display();
         t += 0.08;
