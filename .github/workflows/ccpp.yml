@@ -19,6 +19,7 @@ jobs:
         args: git submodule update --init
     - name: configure
       run: |
+        sudo apt install libdbus-1-dev
         mkdir build
         cd build
         cmake ..
