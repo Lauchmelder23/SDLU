@@ -1,6 +1,8 @@
 # SDL Utility
 A wrapper for SDL2 to make development on quick, simple graphics applications easier.
 
+**This branch is not the final version yet. This version is missing a lot of the features planned for this library**
+
 ![C/C++ CI](https://github.com/Lauchmelder23/SDLU/workflows/C/C++%20CI/badge.svg?branch=development)
 
 ## How to compile
