@@ -11,10 +11,9 @@ target_include_directories(${PNAME} PRIVATE
 	${CMAKE_CURRENT_LIST_DIR}
 )
 
-target_link_libraries(${PNAME} PRIVATE
+target_link_libraries(${PNAME}
 	SDL2
 )
-
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 	target_link_libraries(${PNAME} m)
