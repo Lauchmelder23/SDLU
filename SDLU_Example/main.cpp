@@ -22,6 +22,7 @@ int main(int argc, char** argv)
     SDL_SetWindowTitle(window.GetWindow(), "New Title");
 
     window.SetIcon(64, 64, icon_data);
+    window.SetMouseCursor(SDL_SYSTEM_CURSOR_CROSSHAIR);
     window.SetMaxFramerate(144);
 
     SDL_Event event;
@@ -45,7 +46,7 @@ int main(int argc, char** argv)
         window.Clear(sdlu::Color::FromHSV(floor(t), 100, 100));
 
         window.Display();
-        t += 0.01;
+        t += 0.08;
 
         diff = std::chrono::duration_cast<std::chrono::microseconds>
             (std::chrono::steady_clock::now() - start).count();

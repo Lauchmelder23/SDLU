@@ -233,7 +233,47 @@ namespace sdlu
          *
          * @param[in] max The new maximum framerate
          */
-        void SetMaxFramerate(Uint32 max);
+        void SetMaxFramerate(Uint32 max);   
+
+        /**
+         * @brief Changes the mouse cursor
+         *
+         * @param[in] cursor A pointer to a SDL_Cursor containing cursor data
+         */
+        void SetMouseCursor(SDL_Cursor* cursor);
+
+        /**
+         * @brief Changes the mouse cursor
+         *
+         * @param[in] cursor An enum for a system cursor
+         */
+        void SetMouseCursor(SDL_SystemCursor cursor);
+
+        /**
+         * @brief Changes the mouse cursor
+         * 
+         * @param[in] surface   A pointer to a SDL_Surface containing sprite data
+         * @param[in] clickspot The effective position of the cursor relative to the top left of the sprite
+         */
+        void SetMouseCursor(SDL_Surface* surface, Vector2u clickspot);
+
+        /**
+         * @brief Changes the mouse cursor
+         * 
+         * @param[in] pixels    An array of color data (RGBA as seperate 8-bit values)
+         * @param[in] size      Size of the cursor
+         * @param[in] clickspot The effective position of the cursor relative to the top left of the sprite
+         */
+        void SetMouseCursor(const Uint8* pixels, Vector2u size, Vector2u clickspot);
+
+        /**
+         * @brief Changes the mouse cursor
+         *
+         * @param[in] pixels    An array of color data (RGBA as one 32-bit value)
+         * @param[in] size      Size of the cursor
+         * @param[in] clickspot The effective position of the cursor relative to the top left of the sprite
+         */
+        void SetMouseCursor(const Uint32* pixels, Vector2u size, Vector2u clickspot);
 
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
