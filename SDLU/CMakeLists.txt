@@ -6,10 +6,6 @@ add_library(${PNAME}
 
 set_property(TARGET ${PNAME} PROPERTY CXX_STANDARD 17)
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-	add_link_options(-lm)
-endif()
-
 target_include_directories(${PNAME} PRIVATE
 	${PROJECT_SOURCE_DIR}/3rdparty/SDL/include
 	${CMAKE_CURRENT_LIST_DIR}
@@ -18,6 +14,11 @@ target_include_directories(${PNAME} PRIVATE
 target_link_libraries(${PNAME} PRIVATE
 	SDL2
 )
+
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+	target_link_libraries(${PNAME} m)
+endif()
 
 add_subdirectory(structures)
 add_subdirectory(graphics)
