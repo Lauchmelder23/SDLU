@@ -9,8 +9,12 @@
 
 #define IS_NULLPTR( x ) (x == nullptr)
 
-#define RETURN_IF_NULLPTR( x , v ) { if(IS_NULLPTR(x)) return v; }
-#define RETURN_IF_NOT_NULLPTR( x , v ) { if(!IS_NULLPTR(x)) return v; }
+// TODO: Find fix for this, the original doesnt compile under gcc
+#define RETURN_IF_NULLPTR( x ) { if(IS_NULLPTR(x)) return; }
+#define RETURN_IF_NOT_NULLPTR( x ) { if(!IS_NULLPTR(x)) return; }
+
+#define RETURN_IF_NULLPTR_ARG( x, v ) { if(IS_NULLPTR(x)) return v; }
+#define RETURN_IF_NOT_NULLPTR_ARG( x, v ) { if(!IS_NULLPTR(x)) return v; }
 
 typedef uint8_t Uint8;
 typedef int8_t  Int8;
