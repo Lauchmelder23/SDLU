@@ -53,12 +53,12 @@ namespace sdlu
         // H : [0, 360)
         // S : [0, 1]
         // V : [0, 1]
-        h -= floor(h / 360) * 360;
+        h -= std::floor(h / 360) * 360;
         s = (s > 1) ? 1 : s;
         v = (v > 1) ? 1 : v;
 
         // Convert to RGBA
-        Uint16 H = floor(h / 60.f);
+        Uint16 H = std::floor(h / 60.f);
         float f = (h / 60.f) - H;
 
         Uint8 p = static_cast<Uint8>((v * (1 - s)) * 255);
