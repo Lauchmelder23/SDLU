@@ -60,7 +60,7 @@ namespace sdlu
 
         friend Vector2<T> operator-(const Vector2<T>& left, const Vector2<T>& right)
         {
-            return left + (-right)
+            return left + (-right);
         }
 
         friend Vector2<T> operator*(const Vector2<T>& left, const Vector2<T>& right)

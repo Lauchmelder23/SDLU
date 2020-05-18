@@ -216,7 +216,7 @@ namespace sdlu
     {
         size_t size = static_cast<size_t>(width) * static_cast<size_t>(height) * 4;
         void* _pixels = malloc(size);
-        memcpy(_pixels, pixels, size);
+        std::memcpy(_pixels, pixels, size);
         SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(_pixels,
             width, height, 32, 32 * width,
             SDL_PIXELFORMAT_RGBA8888);
@@ -228,7 +228,7 @@ namespace sdlu
     {
         size_t size = static_cast<size_t>(width) * static_cast<size_t>(height) * 4;
         void* _pixels = malloc(size);
-        memcpy(_pixels, pixels, size);
+        std::memcpy(_pixels, pixels, size);
         SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(_pixels,
             width, height, 32, 4 * width,
             SDL_PIXELFORMAT_RGBA8888);
@@ -267,7 +267,7 @@ namespace sdlu
     {
         size_t _size = static_cast<size_t>(size.x) * static_cast<size_t>(size.y) * 4;
         void* _pixels = malloc(_size);
-        memcpy(_pixels, pixels, _size);
+        std::memcpy(_pixels, pixels, _size);
         SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(_pixels,
             size.x, size.y, 32, 8 * size.x, SDL_PIXELFORMAT_RGBA8888);
         this->SetMouseCursor(surface, clickspot);
@@ -277,7 +277,7 @@ namespace sdlu
     {
         size_t _size = static_cast<size_t>(size.x) * static_cast<size_t>(size.y) * 4;
         void* _pixels = malloc(_size);
-        memcpy(_pixels, pixels, _size);
+        std::memcpy(_pixels, pixels, _size);
         SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(_pixels,
             size.x, size.y, 32, 8 * size.x, SDL_PIXELFORMAT_RGBA32);
         this->SetMouseCursor(surface, clickspot);
