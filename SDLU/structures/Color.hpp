@@ -58,7 +58,7 @@ namespace sdlu
          *
          * @return An RGBA Color object generated from HSV
          */
-        static Color& FromHSV(Uint16 h, Uint8 s, Uint8 v);
+        static Color FromHSV(Uint16 h, Uint8 s, Uint8 v);
 
 
         /////////////////// DEFAULT COLORS ///////////////////

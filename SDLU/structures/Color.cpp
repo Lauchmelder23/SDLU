@@ -47,7 +47,7 @@ namespace sdlu
         return color;
     }
 
-    Color& Color::FromHSV(Uint16 h, Uint8 s, Uint8 v)
+    Color Color::FromHSV(Uint16 h, Uint8 s, Uint8 v)
     {
         // Normalize parameters
         // H : [0, 360)
