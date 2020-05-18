@@ -1,0 +1,2 @@
+C:/Users/Robert/source/repos/SDL_Utility/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_d000c.dir
+C:/Users/Robert/source/repos/SDL_Utility/CMakeFiles/CMakeTmp/CMakeFiles/ALL_BUILD.dir
