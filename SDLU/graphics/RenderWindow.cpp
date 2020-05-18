@@ -4,17 +4,17 @@
 
 namespace sdlu
 {
-    RenderWindow::RenderWindow()
+    RenderWindow::RenderWindow() :
+        m_pWindow(nullptr), m_pRenderer(nullptr),
+        m_oFramerate(0), m_oTimeSinceLastDisplay(std::chrono::steady_clock::now())
     {
-        m_pWindow = nullptr;
-        m_pRenderer = nullptr;
+
     }
 
     RenderWindow::RenderWindow(Vector2u dimension, const std::string& title,
-        Uint32 windowFlags, Uint32 rendererFlags)
+        Uint32 windowFlags, Uint32 rendererFlags) :
+        RenderWindow()
     {
-        m_pWindow = nullptr;
-        m_pRenderer = nullptr;
         Create(dimension, title, windowFlags, rendererFlags);
     }
 
@@ -170,6 +170,19 @@ namespace sdlu
         RETURN_IF_NULLPTR(m_pWindow);
 
         SDL_RenderPresent(m_pRenderer);
+
+        if (m_oFramerate != 0)
+        {
+            Uint64 diff = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    std::chrono::steady_clock::now() - m_oTimeSinceLastDisplay).count();
+
+            if (diff < 1000 / m_oFramerate)
+            {
+                SDL_Delay(1000 / m_oFramerate - diff);
+            }
+        }
+
+        m_oTimeSinceLastDisplay = std::chrono::steady_clock::now();
     }
 
     void RenderWindow::SetVisible(bool visible)
@@ -226,5 +239,10 @@ namespace sdlu
     void RenderWindow::SetIcon(SDL_Surface* icon)
     {
         SDL_SetWindowIcon(m_pWindow, icon);
+    }
+
+    void RenderWindow::SetMaxFramerate(Uint32 max)
+    {
+        m_oFramerate = max;
     }
 }

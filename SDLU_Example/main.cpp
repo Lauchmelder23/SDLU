@@ -15,10 +15,14 @@ int main(int argc, char** argv)
         }
     }
 
+    std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+    Uint64 diff = 1;
+
     MyWindow window(800, 800, "Test");
     SDL_SetWindowTitle(window.GetWindow(), "New Title");
 
     window.SetIcon(64, 64, icon_data);
+    window.SetMaxFramerate(144);
 
     SDL_Event event;
     float t = 0.f;
@@ -42,6 +46,11 @@ int main(int argc, char** argv)
 
         window.Display();
         t += 0.01;
+
+        diff = std::chrono::duration_cast<std::chrono::microseconds>
+            (std::chrono::steady_clock::now() - start).count();
+        window.SetTitle(std::to_string(1000000 / diff) + " FPS");
+        start = std::chrono::steady_clock::now();
     }
 
     SDL_Quit();

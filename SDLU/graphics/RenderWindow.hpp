@@ -6,6 +6,7 @@
  */
 #pragma once
 #include <string>
+#include <chrono>
 #include <SDL.h>
 
 #include <structures/Vector2.hpp>
@@ -223,6 +224,17 @@ namespace sdlu
          */
         void SetIcon(SDL_Surface* icon);
 
+        /**
+         * @brief Sets a maximum framerate on the display function
+         *
+         * If the maximum framerate is not 0, SDL_Delay() will be called
+         * after each Display() to ensure that the time between displays
+         * is not shorter than the framerate limit.
+         *
+         * @param[in] max The new maximum framerate
+         */
+        void SetMaxFramerate(Uint32 max);
+
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
         SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object
@@ -246,5 +258,10 @@ namespace sdlu
          * @brief This function is called after Close() finishes.
          */
         virtual void OnClose();
+
+    private:
+        Uint32 m_oFramerate;
+
+        std::chrono::steady_clock::time_point m_oTimeSinceLastDisplay;
     };
 }
