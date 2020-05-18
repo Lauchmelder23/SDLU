@@ -1,6 +1,7 @@
 #include "Color.hpp"
 
 #include <math.h>
+#include <cmath>
 
 namespace sdlu
 {
