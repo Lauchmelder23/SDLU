@@ -19,7 +19,6 @@ jobs:
         args: git submodule update --init
     - name: configure
       run: 
-        mkdir build
         cd build
         cmake ..
     - name: make
