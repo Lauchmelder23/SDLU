@@ -198,4 +198,33 @@ namespace sdlu
     {
         SDL_SetWindowGrab(m_pWindow, grabbed ? SDL_TRUE : SDL_FALSE);
     }
+
+    void RenderWindow::SetIcon(Uint32 width, Uint32 height, const Uint8* pixels)
+    {
+        size_t size = static_cast<size_t>(width) * static_cast<size_t>(height) * 4;
+        void* _pixels = malloc(size);
+        memcpy(_pixels, pixels, size);
+        SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(_pixels,
+            width, height, 32, 32 * width,
+            SDL_PIXELFORMAT_RGBA8888);
+
+        SDL_SetWindowIcon(m_pWindow, surface);
+    }
+
+    void RenderWindow::SetIcon(Uint32 width, Uint32 height, const Uint32* pixels)
+    {
+        size_t size = static_cast<size_t>(width) * static_cast<size_t>(height) * 4;
+        void* _pixels = malloc(size);
+        memcpy(_pixels, pixels, size);
+        SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(_pixels,
+            width, height, 32, 4 * width,
+            SDL_PIXELFORMAT_RGBA8888);
+
+        SDL_SetWindowIcon(m_pWindow, surface);
+    }
+
+    void RenderWindow::SetIcon(SDL_Surface* icon)
+    {
+        SDL_SetWindowIcon(m_pWindow, icon);
+    }
 }

@@ -198,6 +198,31 @@ namespace sdlu
          */
         void SetMouseCursorGrabbed(bool grabbed);
 
+        /**
+         * @brief Sets the window icon to an array of RGBA values
+         *
+         * @param[in] width  Width of the icon (in px)
+         * @param[in] height Height of the icon (in px)
+         * @param[in] pixels Array of color data (RGBA as seperate 8-Bit integer values)
+         */
+        void SetIcon(Uint32 width, Uint32 height, const Uint8* pixels);
+
+        /**
+         * @brief Sets the window icon to an array of RGBA values
+         *
+         * @param[in] width  Width of the icon (in px)
+         * @param[in] height Height of the icon (in px)
+         * @param[in] pixels Array of color data (RGBA as one 32-Bit integer value)
+         */
+        void SetIcon(Uint32 width, Uint32 height, const Uint32* pixels);
+
+        /**
+         * @brief Sets the window icon to a SDL_Surface
+         *
+         * @param[in] icon A SDL_Surface* holding the icon data
+         */
+        void SetIcon(SDL_Surface* icon);
+
     protected:
         SDL_Window* m_pWindow;      ///< A pointer to the window object
         SDL_Renderer* m_pRenderer;  ///< A pointer to the renderer object
