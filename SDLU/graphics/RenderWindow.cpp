@@ -63,13 +63,13 @@ namespace sdlu
 
     bool RenderWindow::IsOpen()
     {
-        RETURN_IF_NULLPTR_ARG(m_pWindow, false);
+        RETURN_IF_NULLPTR(m_pWindow, false);
         return (!SDL_GetWindowID(m_pWindow) ? false : true);
     }
 
     bool RenderWindow::PollEvent(SDL_Event* event)
     {
-        RETURN_IF_NULLPTR_ARG(m_pWindow, false);
+        RETURN_IF_NULLPTR(m_pWindow, false);
         // Handle events before the user in case a derived
         // class decides to block the event.
         while (SDL_PollEvent(event))
@@ -93,7 +93,7 @@ namespace sdlu
 
     Vector2i RenderWindow::GetPosition()
     {
-        RETURN_IF_NULLPTR_ARG(m_pWindow, Vector2i());
+        RETURN_IF_NULLPTR(m_pWindow, Vector2i());
 
         int x = 0, y = 0;
         SDL_GetWindowPosition(m_pWindow, &x, &y);
@@ -116,7 +116,7 @@ namespace sdlu
 
     Vector2u RenderWindow::GetSize()
     {
-        RETURN_IF_NULLPTR_ARG(m_pWindow, Vector2u());
+        RETURN_IF_NULLPTR(m_pWindow, Vector2u());
 
         int x = 0, y = 0;
         SDL_GetWindowSize(m_pWindow, &x, &y);
@@ -139,7 +139,7 @@ namespace sdlu
 
     std::string RenderWindow::GetTitle()
     {
-        RETURN_IF_NULLPTR_ARG(m_pWindow, "");
+        RETURN_IF_NULLPTR(m_pWindow, "");
 
         return SDL_GetWindowTitle(m_pWindow);
     }
@@ -182,7 +182,7 @@ namespace sdlu
 
             if (diff < 1000 / m_oFramerate)
             {
-                SDL_Delay(1000 / m_oFramerate - diff);
+                SDL_Delay(static_cast<Uint32>(1000 / m_oFramerate - diff));
             }
         }
 

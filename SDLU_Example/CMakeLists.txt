@@ -15,14 +15,7 @@ target_link_libraries(${PNAME}
 	SDL2main
 )
 
-if(WIN32)
-	add_custom_command(TARGET ${PNAME}
-		POST_BUILD
-		COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE_DIR:SDL2>/SDL2d.dll $<TARGET_FILE_DIR:sdlu_example>
-	)
-else()
-	add_custom_command(TARGET ${PNAME}
-		POST_BUILD
-		COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE_DIR:SDL2>/libSDL2-2.0.so $<TARGET_FILE_DIR:sdlu_example>
-	)
-endif()
+add_custom_command(TARGET ${PNAME}
+	POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:SDL2> $<TARGET_FILE_DIR:sdlu_example>
+)
