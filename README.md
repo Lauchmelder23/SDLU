@@ -11,6 +11,8 @@ While SDL2 is a great library to handle graphics and audio, it can be laborious 
 This library aims to minimize the work needed to setup a simple project.
 
 ## How to compile
+Note: Under Linux, it might be necessary to install `libdbus-1-dev` in order for SDL2 to build successfully.
+
 1. Clone the development branch `git clone -b development https://github.com/Lauchmelder23/SDLU`
 2. Clone the submodules `git submodule update --init`
 3. Create a build directory and enter it `mkdir build`, `cd build`
