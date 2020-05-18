@@ -36,12 +36,13 @@ namespace sdlu
                                     SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                                     dimension.x, dimension.y,
                                     windowFlags);
+
         THROW_IF(IS_NULLPTR(m_pWindow),
-            ObjectCreationException("Failed to create SDL_Window."));
+            ObjectCreationException("Failed to create SDL_Window. \nSDL_GetError(): " + std::string(SDL_GetError())));
 
         m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, rendererFlags);
         THROW_IF(IS_NULLPTR(m_pRenderer),
-            ObjectCreationException("Failed to create SDL_Renderer."));
+            ObjectCreationException("Failed to create SDL_Renderer. \nSDL_GetError(): " + std::string(SDL_GetError())));
 
         OnCreate();
     }

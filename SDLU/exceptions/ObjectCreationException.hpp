@@ -6,6 +6,7 @@
  */
 #pragma once
 #include <exception>
+#include <string>
 
 namespace sdlu
 {
@@ -13,7 +14,7 @@ namespace sdlu
         virtual public std::exception
     {
     public:
-        ObjectCreationException(const char* description) :
+        ObjectCreationException(std::string description) :
             m_pDescription(description)
         {
             // Empty
@@ -21,10 +22,10 @@ namespace sdlu
 
         virtual const char* what() const throw()
         {
-            return m_pDescription;
+            return m_pDescription.c_str();
         }
 
     private:
-        const char* m_pDescription;
+        std::string m_pDescription;
     };
 }
