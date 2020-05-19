@@ -154,14 +154,14 @@ namespace sdlu
          *
          * @return A constant pointer to SDL_Window
          */
-        SDL_Window* const GetWindow();
+        SDL_Window* const GetWindow() const;
 
         /**
          * @brief Returns a constant pointer to the SDL_Renderer
          *
          * @return A constant pointer to SDL_Renderer
          */
-        SDL_Renderer* const GetRenderer();
+        SDL_Renderer* const GetRenderer() const;
 
         /**
          * @brief Clears the display

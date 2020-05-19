@@ -25,4 +25,14 @@ namespace sdlu
     {
         return GetPosition() - relativeTo.GetPosition();
     }
+
+    void Mouse::SetPosition(const Vector2i& position)
+    {
+        SDL_WarpMouseGlobal(position.x, position.y);
+    }
+
+    void Mouse::SetPosition(const Vector2i& position, const RenderWindow& relativeTo)
+    {
+        SDL_WarpMouseInWindow(relativeTo.GetWindow(), position.x, position.y);
+    }
 }

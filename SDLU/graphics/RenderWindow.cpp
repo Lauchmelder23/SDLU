@@ -151,12 +151,12 @@ namespace sdlu
         SDL_SetWindowTitle(m_pWindow, title.c_str());
     }
 
-    SDL_Window* const RenderWindow::GetWindow()
+    SDL_Window* const RenderWindow::GetWindow() const
     {
         return m_pWindow;
     }
 
-    SDL_Renderer* const RenderWindow::GetRenderer()
+    SDL_Renderer* const RenderWindow::GetRenderer() const
     {
         return m_pRenderer;
     }

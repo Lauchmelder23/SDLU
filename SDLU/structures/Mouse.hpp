@@ -58,5 +58,20 @@ namespace sdlu
          * @return The position of the mouse relative to the top left of the passed window object
          */
         static Vector2i GetPosition(const RenderWindow& relativeTo);
+
+        /**
+         * @brief Sets the absolute position of the mouse
+         *
+         * @param[in] position A 2D vector of the new position
+         */
+        static void SetPosition(const Vector2i& position);
+
+        /**
+         * @brief Sets current relative position of the mouse
+         *
+         * @param[in] position A 2D vector of the new position
+         * @param[in] relativeTo The window the mouse position should be relative to
+         */
+        static void SetPosition(const Vector2i& position, const RenderWindow& relativeTo);
     };
 }
