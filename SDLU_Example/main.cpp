@@ -30,8 +30,11 @@ int main(int argc, char** argv)
 
     SDL_Event event;
     float t = 0.f;
+
+    std::string title = "";
     while (window.IsOpen())
     {
+        title = "";
         while (window.PollEvent(&event))
         {
             switch (event.window.event)
@@ -53,7 +56,14 @@ int main(int argc, char** argv)
 
         diff = std::chrono::duration_cast<std::chrono::microseconds>
             (std::chrono::steady_clock::now() - start).count();
-        window.SetTitle(std::to_string(1000000 / diff) + " FPS");
+        title += (std::to_string(1000000 / diff) + " FPS | Mouse: ");
+        title += (sdlu::Mouse::IsButtonDown(sdlu::Mouse::Button::Left)) ? "L " : "l ";
+        title += (sdlu::Mouse::IsButtonDown(sdlu::Mouse::Button::Middle)) ? "M " : "m ";
+        title += (sdlu::Mouse::IsButtonDown(sdlu::Mouse::Button::Right)) ? "R " : "r ";
+        title += (sdlu::Mouse::IsButtonDown(sdlu::Mouse::Button::XButton1)) ? "X1 " : "x1 ";
+        title += (sdlu::Mouse::IsButtonDown(sdlu::Mouse::Button::XButton2)) ? "X2" : "x2";
+
+        window.SetTitle(title);
         start = std::chrono::steady_clock::now();
     }
 
