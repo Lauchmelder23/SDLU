@@ -7,6 +7,8 @@
 #pragma once
 #include <cstdint>
 
+#define PI 3.1415926f
+
 #define IS_NULLPTR( x ) (x == nullptr)
 
 #define RETURN_IF_NULLPTR( x, ... ) { if(IS_NULLPTR(x)) return __VA_ARGS__; }

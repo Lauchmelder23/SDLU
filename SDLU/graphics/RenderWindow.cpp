@@ -61,7 +61,7 @@ namespace sdlu
         OnClose();
     }
 
-    bool RenderWindow::IsOpen()
+    bool RenderWindow::IsOpen() const
     {
         RETURN_IF_NULLPTR(m_pWindow, false);
         return (!SDL_GetWindowID(m_pWindow) ? false : true);
@@ -91,7 +91,7 @@ namespace sdlu
         return true;
     }
 
-    Vector2i RenderWindow::GetPosition()
+    Vector2i RenderWindow::GetPosition() const
     {
         RETURN_IF_NULLPTR(m_pWindow, Vector2i());
 
@@ -114,7 +114,7 @@ namespace sdlu
         SDL_SetWindowPosition(m_pWindow, x, y);
     }
 
-    Vector2u RenderWindow::GetSize()
+    Vector2u RenderWindow::GetSize() const
     {
         RETURN_IF_NULLPTR(m_pWindow, Vector2u());
 
@@ -137,7 +137,7 @@ namespace sdlu
         SDL_SetWindowSize(m_pWindow, width, height);
     }
 
-    std::string RenderWindow::GetTitle()
+    std::string RenderWindow::GetTitle() const
     {
         RETURN_IF_NULLPTR(m_pWindow, "");
 

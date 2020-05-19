@@ -7,6 +7,7 @@
 #pragma once
 #include <SDL_mouse.h>
 #include <structures/Vector2.hpp>
+#include <graphics/RenderWindow.hpp>
 
 namespace sdlu
 {
@@ -42,5 +43,20 @@ namespace sdlu
          * @return True if the button is pressed
          */
         static bool IsButtonDown(Button button);
+
+        /**
+         * @brief Gets the absolute position of the mouse
+         *
+         * @return Current mouse position relative to screen
+         */
+        static Vector2i GetPosition();
+
+        /**
+         * @brief Gets current relative position of the mouse
+         *
+         * @param[in] relativeTo The window the mouse position should be relative to
+         * @return The position of the mouse relative to the top left of the passed window object
+         */
+        static Vector2i GetPosition(const RenderWindow& relativeTo);
     };
 }

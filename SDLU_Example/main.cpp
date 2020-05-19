@@ -49,7 +49,10 @@ int main(int argc, char** argv)
             }
         }
 
-        window.Clear(sdlu::Color::FromHSV(std::floor(t), 100, 100));
+        sdlu::Vector2i mousePos = sdlu::Mouse::GetPosition(window) - sdlu::Vector2i(400, 400);
+        // TODO: Check HSV color conversion, the SV values seem to be ignored
+        window.Clear(sdlu::Color::FromHSV(std::atan2(mousePos.y, mousePos.x) / PI * 180 + 180, 
+            100, 100));
 
         window.Display();
         t += 0.08;

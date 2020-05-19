@@ -14,6 +14,10 @@
 
 namespace sdlu
 {
+    // TODO: Probably break up into sdlu::Window and sdlu::Renderer
+    // to avoid passing around the Renderer when only the Window is
+    // needed. (See Mouse::GetPosition for example)
+
     /**
      * @brief A class that handles window related functionality
      *
@@ -66,7 +70,7 @@ namespace sdlu
          *
          * @return True if the window is open, False if not
          */
-        bool IsOpen();
+        bool IsOpen() const;
 
         /**
          * @brief A non-blocking event polling function
@@ -90,7 +94,7 @@ namespace sdlu
          *
          * @return A vector with the current position relative to the top left corner of the display
          */
-        Vector2i GetPosition();
+        Vector2i GetPosition() const;
 
         /**
          * @brief Sets a new window position
@@ -113,7 +117,7 @@ namespace sdlu
          *
          * @return A vector with the windows size
          */
-        Vector2u GetSize();
+        Vector2u GetSize() const;
 
         /**
          * @brief Sets a new window size
@@ -136,7 +140,7 @@ namespace sdlu
          * 
          * @return The title of the widnow
          */
-        std::string GetTitle();
+        std::string GetTitle() const;
 
         /**
          * @brief Sets a new window title
