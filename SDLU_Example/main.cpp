@@ -29,7 +29,6 @@ int main(int argc, char** argv)
     window.SetMaxFramerate(144);
 
     SDL_Event event;
-    float t = 0.f;
 
     std::string title = "";
     while (window.IsOpen())
@@ -55,7 +54,6 @@ int main(int argc, char** argv)
             100, 100));
 
         window.Display();
-        t += 0.08;
 
         diff = std::chrono::duration_cast<std::chrono::microseconds>
             (std::chrono::steady_clock::now() - start).count();

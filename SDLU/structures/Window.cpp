@@ -237,4 +237,17 @@ namespace sdlu
             size.x, size.y, 32, 8 * size.x, SDL_PIXELFORMAT_RGBA32);
         this->SetMouseCursor(surface, clickspot);
     }
+
+    void Window::OnCreate()
+    {
+    }
+
+    bool Window::OnResize()
+    {
+        return false;
+    }
+
+    void Window::OnClose()
+    {
+    }
 }

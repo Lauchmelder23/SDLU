@@ -24,4 +24,17 @@ namespace sdlu
     {
         // Empty
     }
+
+    void RenderWindow::OnCreate()
+    {
+    }
+
+    bool RenderWindow::OnResize()
+    {
+        return false;
+    }
+
+    void RenderWindow::OnClose()
+    {
+    }
 }

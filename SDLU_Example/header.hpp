@@ -13,20 +13,21 @@ public:
     {
         // Empty
     }
+
+private:
+    virtual void OnCreate()
+    {
+        std::cout << "MyWindow created!" << std::endl;
+    }
+
+    virtual bool OnResize()
+    {
+        std::cout << "MyWindow resized!" << std::endl;
+        return true;
+    }
+
+    virtual void OnClose()
+    {
+        std::cout << "MyWindow closed!" << std::endl;
+    }
 };
-
-void sdlu::Window::OnCreate()
-{
-    std::cout << "Window was Created!" << std::endl;
-}
-
-bool sdlu::Window::OnResize()
-{
-    std::cout << "Window was Resized!" << std::endl;
-    return true;
-}
-
-void sdlu::Window::OnClose()
-{
-    std::cout << "Window was Closed!" << std::endl;
-}

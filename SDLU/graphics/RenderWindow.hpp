@@ -43,11 +43,30 @@ namespace sdlu
          * @param[in] title     The title of the create window
          */
         RenderWindow(Vector2u dimension, const std::string& title, 
-            Uint32 windowFlags);
+            Uint32 windowFlags = SDL_WINDOW_SHOWN);
 
         RenderWindow(const RenderWindow& other) = delete;
         RenderWindow(const RenderWindow&& other) = delete;
 
         virtual ~RenderWindow();
+
+    protected:
+        /**
+         * @brief Function called after Window creation
+         */
+        virtual void OnCreate();
+
+        /**
+         * @brief Function called after resize event
+         *
+         * @return True if the resize event should not be returned via
+         *         PollEvent()
+         */
+        virtual bool OnResize();
+
+        /**
+         * @brief Function called after closing the window
+         */
+        virtual void OnClose();
     };
 }
