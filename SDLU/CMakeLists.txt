@@ -2,7 +2,7 @@ set(PNAME SDLU)
 
 add_library(${PNAME}
 	alibi.cpp SDLU.hpp Util.hpp
- "structures/Color.cpp" "structures/Mouse.cpp")
+ "structures/Color.cpp" "structures/Mouse.cpp" "structures/Window.cpp")
 
 set_property(TARGET ${PNAME} PROPERTY CXX_STANDARD 17)
 

@@ -4,4 +4,6 @@ target_sources(${PNAME} PRIVATE
 	${CMAKE_CURRENT_SOURCE_DIR}/Color.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/Mouse.hpp
 	${CMAKE_CURRENT_SOURCE_DIR}/Mouse.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/Window.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/Window.cpp
 )
