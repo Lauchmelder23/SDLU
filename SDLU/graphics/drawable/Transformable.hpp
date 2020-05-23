@@ -149,10 +149,10 @@ namespace sdlu
          */
         void Rotate(float angle);
 
-    private:
-        Vector2f m_oPosition;
-        Vector2f m_oOrigin;
-        Vector2f m_oScale;
-        float m_fRotation;
+    protected:
+        Vector2f position; ///< Position of the object
+        Vector2f origin;   ///< Offset of the top-left corner from the position
+        Vector2f scale;    ///< Scale of the object
+        float rotation;    ///< Rotation of the object (in degrees)
     };
 }

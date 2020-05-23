@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics/RenderWindow.hpp"
+#include "graphics/Graphics.hpp"
 
 #include "structures/Mouse.hpp"
 

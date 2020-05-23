@@ -6,7 +6,7 @@
  */
 #pragma once
 
-#include <graphics/RenderTarget.hpp>
+#include <SDL.h>
 
 namespace sdlu
 {
@@ -16,7 +16,6 @@ namespace sdlu
     class Drawable
     {
     public:
-        Drawable() = delete;
         Drawable(const Drawable& other) = delete;
         Drawable(Drawable&& other) = delete;
         Drawable& operator=(const Drawable& other) = delete;
@@ -24,6 +23,7 @@ namespace sdlu
         friend class RenderTarget;
 
     protected:
-        virtual void Draw(RenderTarget& target) const = 0;
+        Drawable() { }
+        virtual void Draw(SDL_Renderer* const target) const = 0;
     };
 }

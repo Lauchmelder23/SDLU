@@ -3,8 +3,8 @@
 namespace sdlu
 {
     Transformable::Transformable() :
-        m_oPosition(0, 0), m_oOrigin(0, 0),
-        m_oScale(1.f, 1.f), m_fRotation(0.f)
+        position(0, 0), origin(0, 0),
+        scale(1.f, 1.f), rotation(0.f)
     {
         // Empty
     }
@@ -16,80 +16,80 @@ namespace sdlu
 
     Vector2f Transformable::GetPosition()
     {
-        return m_oPosition;
+        return position;
     }
 
     void Transformable::SetPosition(const Vector2f& position)
     {
-        m_oPosition = position;
+        this->position = position;
     }
 
     void Transformable::SetPosition(float x, float y)
     {
-        m_oPosition = Vector2f(x, y);
+        position = Vector2f(x, y);
     }
 
     void Transformable::Move(const Vector2f& position)
     {
-        m_oPosition += position;
+        this->position += position;
     }
 
     void Transformable::Move(float x, float y)
     {
-        m_oPosition += Vector2f(x, y);
+        position += Vector2f(x, y);
     }
     Vector2f Transformable::GetOrigin()
     {
-        return m_oOrigin;
+        return origin;
     }
 
     void Transformable::SetOrigin(const Vector2f& origin)
     {
-        m_oOrigin = origin;
+        this->origin = origin;
     }
 
     void Transformable::SetOrigin(float x, float y)
     {
-        m_oOrigin = Vector2f(x, y);
+        origin = Vector2f(x, y);
     }
 
     Vector2f Transformable::GetScale()
     {
-        return m_oScale;
+        return scale;
     }
 
     void Transformable::SetScale(const Vector2f& scale)
     {
-        m_oScale = scale;
+        this->scale = scale;
     }
 
     void Transformable::SetScale(float x, float y)
     {
-        m_oScale = Vector2f(x, y);
+        scale = Vector2f(x, y);
     }
 
     void Transformable::Scale(const Vector2f& scale)
     {
-        m_oScale += scale;
+        this->scale += scale;
     }
 
     void Transformable::Scale(float x, float y)
     {
-        m_oScale += Vector2f(x, y);
+        scale += Vector2f(x, y);
     }
 
     float Transformable::GetRotation()
     {
-        return m_fRotation;
+        return rotation;
     }
 
     void Transformable::SetRotation(float angle)
     {
-        m_fRotation = angle;
+        rotation = angle;
     }
 
     void Transformable::Rotate(float angle)
     {
-        m_fRotation += angle;
+        rotation += angle;
     }
 }

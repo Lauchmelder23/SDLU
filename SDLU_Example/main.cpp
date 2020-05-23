@@ -30,6 +30,9 @@ int main(int argc, char** argv)
 
     SDL_Event event;
 
+    sdlu::Rectangle rect(sdlu::Vec2f(100, 100), sdlu::Vec2f(300, 200));
+    rect.SetColor(sdlu::Color::Blue);
+
     std::string title = "";
     while (window.IsOpen())
     {
@@ -52,6 +55,8 @@ int main(int argc, char** argv)
         // TODO: Check HSV color conversion, the SV values seem to be ignored
         window.Clear(sdlu::Color::FromHSV(std::atan2(mousePos.y, mousePos.x) / PI * 180 + 180, 
             100, 100));
+
+        window.Draw(rect);
 
         window.Display();
 
