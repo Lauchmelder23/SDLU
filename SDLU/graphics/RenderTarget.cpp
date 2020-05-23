@@ -22,6 +22,11 @@ namespace sdlu
         SDL_RenderClear(renderer);
     }
 
+    void RenderTarget::Draw(const Drawable& drawable)
+    {
+        drawable.Draw(*this);
+    }
+
     void RenderTarget::Display()
     {
         RETURN_IF_NULLPTR(renderer);

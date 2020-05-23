@@ -10,6 +10,7 @@
 #include <SDL.h>
 
 #include <structures/Color.hpp>
+#include <graphics/drawable/Drawable.hpp>
 
 namespace sdlu
 {
@@ -28,6 +29,13 @@ namespace sdlu
          * @param[in] color The color to clear the display with
          */
         void Clear(const Color& color = Color::Black);
+
+        /**
+         * @brief Draws a sdlu::Drawable to the SDL_Renderer
+         *
+         * @param[in] drawable A reference to a derived class of Drawable
+         */
+        void Draw(const Drawable& drawable);
 
         /**
          * @brief Display the current state of the renderer to the screen
