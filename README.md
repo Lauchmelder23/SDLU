@@ -5,6 +5,8 @@ A wrapper for SDL2 to make development on quick, simple graphics applications ea
 
 **This branch is not the final version yet. This version is missing a lot of the features planned for this library**
 
+You should definitely check out my other SDL-related project called [SDL Framework](https://github.com/Lauchmelder23/SDLFramework). It does not use this wrapper library but it sets up some interfaces you can derive from to have a fully-functional and fully-customizable SDL MessageLoop with no effort!
+
 ## Motivation
 While SDL2 is a great library to handle graphics and audio, it can be laborious to get a quick program up and running. SDLU tries to solve that by implementing objects that sit on top of native SDL2 functions and act as a sort of API between your program and SDL2. However it still allows the user to access SDL2 objects like `SDL_Window` and use them in native SDL2 functions. SDLU also contains primitive shapes that can be quickly set up and rendered onto the screen.
 
