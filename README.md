@@ -1,6 +1,12 @@
 # SDL Utility
 A wrapper for SDL2 to make development on quick, simple graphics applications easier.
 
+## Important
+I abandoned this project a year ago and picked up development recently. 
+I am very unhappy with how I set up this project back then and gained a lot of experience in the meantime,
+so I decided to restructure this repo. In case you're using this, or plan on using this you might wanna
+watch out for possible major changes in the near future.
+
 ![Build (Ubuntu)](https://github.com/Lauchmelder23/SDLU/workflows/Build%20(Ubuntu)/badge.svg)
 
 **This branch is not the final version yet. This version is missing a lot of the features planned for this library**
