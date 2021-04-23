@@ -3,6 +3,8 @@
 #include <SDL.h>
 #include <cstring>
 
+#include "structures/Cursor.hpp"
+
 SDLU_BEGIN
 Window::Window() :
     window(nullptr)
@@ -204,30 +206,9 @@ void Window::SetMouseCursor(SDL_Cursor* cursor)
     SDL_SetCursor(cursor);
 }
 
-void Window::SetMouseCursor(SDL_Surface* surface, Vector2u clickspot)
+void Window::SetMouseCursor(const Cursor& cursor)
 {
-    SDL_Cursor* _cursor = SDL_CreateColorCursor(surface, clickspot.x, clickspot.y);
-    SDL_SetCursor(_cursor);
-}
-
-void Window::SetMouseCursor(const Uint8* pixels, Vector2u size, Vector2u clickspot)
-{
-    size_t _size = static_cast<size_t>(size.x) * static_cast<size_t>(size.y) * 4;
-    void* _pixels = malloc(_size);
-    memcpy(_pixels, pixels, _size);
-    SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(_pixels,
-        size.x, size.y, 32, 8 * size.x, SDL_PIXELFORMAT_RGBA8888);
-    this->SetMouseCursor(surface, clickspot);
-}
-
-void Window::SetMouseCursor(const Uint32* pixels, Vector2u size, Vector2u clickspot)
-{
-    size_t _size = static_cast<size_t>(size.x) * static_cast<size_t>(size.y) * 4;
-    void* _pixels = malloc(_size);
-    memcpy(_pixels, pixels, _size);
-    SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(_pixels,
-        size.x, size.y, 32, 8 * size.x, SDL_PIXELFORMAT_RGBA32);
-    this->SetMouseCursor(surface, clickspot);
+    SDL_SetCursor(cursor.cursor);
 }
 
 void Window::OnCreate()

@@ -27,7 +27,7 @@ int main(int argc, char** argv)
     window.SetTitle("New Title");
 
     window.SetIcon(64, 64, icon_data);
-    // window.SetMouseCursor(SDL_SYSTEM_CURSOR_CROSSHAIR);
+    window.SetMouseCursor(sdlu::Cursor::Type::Crosshair);
     window.SetMaxFramerate(144);
 
     SDL_Event event;

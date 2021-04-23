@@ -17,6 +17,8 @@ struct SDL_Surface;
 struct SDL_Cursor;
 
 SDLU_BEGIN
+class Cursor;
+
 /**
     * @brief Stores information about a window. You probably want RenderWindow.
     */
@@ -230,28 +232,9 @@ public:
     /**
         * @brief Changes the mouse cursor
         *
-        * @param[in] surface   A pointer to a SDL_Surface containing sprite data
-        * @param[in] clickspot The effective position of the cursor relative to the top left of the sprite
+        * @param[in] cursor   The cursor object holding cursor data
         */
-    void SetMouseCursor(SDL_Surface* surface, Vector2u clickspot);
-
-    /**
-        * @brief Changes the mouse cursor
-        *
-        * @param[in] pixels    An array of color data (RGBA as seperate 8-bit values)
-        * @param[in] size      Size of the cursor
-        * @param[in] clickspot The effective position of the cursor relative to the top left of the sprite
-        */
-    void SetMouseCursor(const Uint8* pixels, Vector2u size, Vector2u clickspot);
-
-    /**
-        * @brief Changes the mouse cursor
-        *
-        * @param[in] pixels    An array of color data (RGBA as one 32-bit value)
-        * @param[in] size      Size of the cursor
-        * @param[in] clickspot The effective position of the cursor relative to the top left of the sprite
-        */
-    void SetMouseCursor(const Uint32* pixels, Vector2u size, Vector2u clickspot);
+    void SetMouseCursor(const Cursor& cursor);
 
 protected:
     SDL_Window* window;
