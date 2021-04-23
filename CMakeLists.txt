@@ -2,12 +2,35 @@ cmake_minimum_required(VERSION 3.8)
 
 project(sdlu)
 
-if(NOT ENABLE_EXAMPLE)
-    set(ENABLE_EXAMPLE CACHE BOOL OFF)
-endif()
+find_package(SDL2 CONFIG REQUIRED)
 
-add_subdirectory(3rdparty/SDL)
-add_subdirectory(SDLU)
-if(ENABLE_EXAMPLE)
-   add_subdirectory(SDLU_Example)
+option(BUILD_EXAMPLES "Builds the example projects" ON)
+
+add_subdirectory(lib/sdl2_gfx)
+
+file(GLOB_RECURSE sdlu_includes
+    "include/*.hpp"
+)
+
+file(GLOB_RECURSE sdlu_sources
+    "src/*.cpp"
+)
+
+add_library(sdlu
+    ${sdlu_includes} ${sdlu_sources}
+)
+
+target_include_directories(sdlu PUBLIC
+    "include"
+    SDL2::SDL2
+    sdl2_gfx
+)
+
+target_link_libraries(sdlu PUBLIC
+    sdl2_gfx
+    SDL2::SDL2 SDL2::SDL2main
+)
+
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
 endif()
