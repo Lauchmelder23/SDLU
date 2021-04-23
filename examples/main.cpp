@@ -23,7 +23,7 @@ int main(int argc, char** argv)
         }
     }
 
-    std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
+    sdlu::Clock timer;
     Uint64 diff = 1;
 
     MyWindow window(800, 800, "Test");
@@ -65,8 +65,7 @@ int main(int argc, char** argv)
 
         window.Display();
 
-        diff = std::chrono::duration_cast<std::chrono::microseconds>
-            (std::chrono::steady_clock::now() - start).count();
+        diff = timer.Restart().AsMicroseconds();
         title += (std::to_string(1000000 / diff) + " FPS | Mouse: ");
         title += (sdlu::Mouse::IsButtonDown(sdlu::Mouse::Button::Left)) ? "L " : "l ";
         title += (sdlu::Mouse::IsButtonDown(sdlu::Mouse::Button::Middle)) ? "M " : "m ";
@@ -75,7 +74,6 @@ int main(int argc, char** argv)
         title += (sdlu::Mouse::IsButtonDown(sdlu::Mouse::Button::XButton2)) ? "X2" : "x2";
 
         window.SetTitle(title);
-        start = std::chrono::steady_clock::now();
     }
 
     sdlu::Quit();

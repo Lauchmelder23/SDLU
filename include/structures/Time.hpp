@@ -6,6 +6,9 @@
 
 SDLU_BEGIN
 
+typedef Int64		TimeRep;
+typedef std::nano	TimePeriod;
+
 class Time {
 public:
 	Time();
@@ -20,8 +23,9 @@ public:
 	std::chrono::milliseconds AsChronoMilliseconds() const;
 	std::chrono::microseconds AsChronoMicroseconds() const;
 
-	template<typename Rep, typename Period> friend Time Create(const Rep& duration);
-	template<typename Rep, typename Period> friend Time Create(const std::chrono::duration<Rep, Period>& duration);
+	template<typename Rep = Int64, typename Period = std::ratio<1>> static Time Create(const Rep& duration);
+	template<typename Rep = Int64, typename Period = std::ratio<1>> static Time Create(const std::chrono::duration<Rep, Period>& duration);
+	template<typename Rep = Int64, typename Period = std::ratio<1>> static Time Now();
 	friend Time Seconds(float seconds);
 	friend Time Milliseconds(Int32 milliseconds);
 	friend Time Microseconds(Int64 microseconds);
@@ -58,7 +62,7 @@ public:
 	friend Time& operator%=(Time& left, const Time& right);
 
 private:
-	std::chrono::duration<Int64, std::micro> microseconds;
+	std::chrono::duration<TimeRep, TimePeriod> microseconds;
 };
 
 
@@ -74,20 +78,26 @@ inline std::chrono::duration<Rep, Period> Time::AsChrono() const
 	return std::chrono::duration_cast<std::chrono::duration<Rep, Period>>(microseconds);
 }
 
-template<typename Rep = Int64, typename Period = std::ratio<1>>
-inline Time Create(const Rep& duration)
+template<typename Rep, typename Period>
+inline Time Time::Create(const Rep& duration)
 {
 	Time newTime;
-	newTime.microseconds = std::chrono::duration_cast<std::chrono::duration<Int64, std::micro>>(std::chrono::duration<Rep, Period>(duration));
+	newTime.microseconds = std::chrono::duration_cast<std::chrono::duration<TimeRep, TimePeriod>>(std::chrono::duration<Rep, Period>(duration));
 	return newTime;
 }
 
-template<typename Rep = Int64, typename Period = std::ratio<1>>
-inline Time Create(const std::chrono::duration<Rep, Period>& duration)
+template<typename Rep, typename Period>
+inline Time Time::Create(const std::chrono::duration<Rep, Period>& duration)
 {
 	Time newTime;
-	newTime.microseconds = std::chrono::duration_cast<std::chrono::duration<Int64, std::micro>>(duration);
+	newTime.microseconds = std::chrono::duration_cast<std::chrono::duration<TimeRep, TimePeriod>>(duration);
 	return newTime;
+}
+
+template<typename Rep, typename Period>
+inline Time Time::Now()
+{
+	return Create(std::chrono::steady_clock::now().time_since_epoch());
 }
 
 SDLU_END

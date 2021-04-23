@@ -40,17 +40,17 @@ std::chrono::microseconds Time::AsChronoMicroseconds() const
 
 Time Seconds(float seconds)
 {
-	return Create<float>(seconds);
+	return Time::Create<float>(seconds);
 }
 
 Time Milliseconds(Int32 milliseconds)
 {
-	return Create<Int32, std::milli>(milliseconds);
+	return Time::Create<Int32, std::milli>(milliseconds);
 }
 
 Time Microseconds(Int64 microseconds)
 {
-	return Create<Int64, std::micro>(microseconds);
+	return Time::Create<Int64, std::micro>(microseconds);
 }
 
 bool operator==(const Time& left, const Time& right)
@@ -85,12 +85,12 @@ bool operator>=(const Time& left, const Time& right)
 
 Time operator-(const Time& right)
 {
-	return Create(-right.microseconds);
+	return Time::Create(-right.microseconds);
 }
 
 Time operator+(const Time& left, const Time& right)
 {
-	return Create(left.microseconds + right.microseconds);
+	return Time::Create(left.microseconds + right.microseconds);
 }
 
 Time& operator+=(Time& left, const Time& right)
@@ -101,7 +101,7 @@ Time& operator+=(Time& left, const Time& right)
 
 Time operator-(const Time& left, const Time& right)
 {
-	return Create(left.microseconds - right.microseconds);
+	return Time::Create(left.microseconds - right.microseconds);
 }
 
 Time& operator-=(Time& left, const Time& right)
@@ -112,12 +112,12 @@ Time& operator-=(Time& left, const Time& right)
 
 Time operator*(const Time& left, float right)
 {
-	return Create(left.microseconds * right);
+	return Time::Create(left.microseconds * right);
 }
 
 Time operator*(const Time& left, Int64 right)
 {
-	return Create(left.microseconds * right);
+	return Time::Create(left.microseconds * right);
 }
 
 Time operator*(float left, const Time& right)
@@ -144,12 +144,12 @@ Time& operator*=(Time& left, Int64 right)
 
 Time operator/(const Time& left, float right)
 {
-	return Create(left.microseconds / right);
+	return Time::Create(left.microseconds / right);
 }
 
 Time operator/(const Time& left, Int64 right)
 {
-	return Create(left.microseconds / right);
+	return Time::Create(left.microseconds / right);
 }
 
 Time& operator/=(Time& left, float right)
@@ -171,7 +171,7 @@ float operator/(const Time& left, const Time& right)
 
 Time operator%(const Time& left, const Time& right)
 {
-	return Create(left.microseconds % right.microseconds);
+	return Time::Create(left.microseconds % right.microseconds);
 }
 
 Time& operator%=(Time& left, const Time& right)
