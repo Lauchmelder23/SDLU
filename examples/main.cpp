@@ -9,6 +9,9 @@ int main(int argc, char** argv)
 {
     sdlu::Initialize();
 
+    sdlu::Time test = sdlu::Microseconds(420);
+    std::cout << test.AsSeconds() << std::endl;
+
     Uint32* icon_data = new Uint32[64 * 64];
     for (int y = 0; y < 64; y++)
     {
