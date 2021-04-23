@@ -1,6 +1,0 @@
-target_sources(${PNAME} PRIVATE
-	${CMAKE_CURRENT_SOURCE_DIR}/Shape.hpp
-	${CMAKE_CURRENT_SOURCE_DIR}/Shape.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/Rectangle.hpp
-	${CMAKE_CURRENT_SOURCE_DIR}/Rectangle.cpp
-)
