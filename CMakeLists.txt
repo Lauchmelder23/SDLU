@@ -22,13 +22,13 @@ add_library(sdlu
 
 target_include_directories(sdlu PUBLIC
     "include"
-    SDL2::SDL2
+    ${SDL2_INCLUDE_DIRS}
     sdl2_gfx
 )
 
 target_link_libraries(sdlu PUBLIC
     sdl2_gfx
-    SDL2::SDL2 SDL2::SDL2main
+    SDL2 SDL2main
 )
 
 if(BUILD_EXAMPLES)

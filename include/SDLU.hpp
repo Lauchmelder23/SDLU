@@ -3,6 +3,7 @@
 #include <graphics/Graphics.hpp>
 #include <structures/Mouse.hpp>
 #include <structures/Cursor.hpp>
+#include <structures/Time.hpp>
 #include <structures/Clock.hpp>
 
 namespace sdlu {

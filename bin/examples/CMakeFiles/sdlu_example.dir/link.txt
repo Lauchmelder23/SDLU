@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/sdlu_example.dir/main.cpp.o  -o sdlu_example ../libsdlu.a ../lib/sdl2_gfx/libsdl2_gfx.a -lSDL2 -lSDL2main 

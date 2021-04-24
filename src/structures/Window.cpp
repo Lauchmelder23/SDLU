@@ -1,5 +1,7 @@
 #include "structures/Window.hpp"
 
+#include <stdexcept>
+
 #include <SDL.h>
 #include <cstring>
 

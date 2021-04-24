@@ -1,7 +1,9 @@
 #include "graphics/RenderTarget.hpp"
 
+#include <stdexcept>
+
 #include <SDL.h>
-#include <Util.hpp>
+#include "Util.hpp"
 
 SDLU_BEGIN
 RenderTarget::~RenderTarget()

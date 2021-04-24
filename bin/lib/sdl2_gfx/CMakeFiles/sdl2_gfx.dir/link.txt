@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsdl2_gfx.a  CMakeFiles/sdl2_gfx.dir/src/SDL2_framerate.c.o CMakeFiles/sdl2_gfx.dir/src/SDL2_gfxPrimitives.c.o CMakeFiles/sdl2_gfx.dir/src/SDL2_imageFilter.c.o CMakeFiles/sdl2_gfx.dir/src/SDL2_rotozoom.c.o
+/usr/bin/ranlib libsdl2_gfx.a
