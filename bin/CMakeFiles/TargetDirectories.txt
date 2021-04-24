@@ -1,9 +1,0 @@
-/home/robert/Programming/SDLU/bin/CMakeFiles/rebuild_cache.dir
-/home/robert/Programming/SDLU/bin/CMakeFiles/sdlu.dir
-/home/robert/Programming/SDLU/bin/CMakeFiles/edit_cache.dir
-/home/robert/Programming/SDLU/bin/lib/sdl2_gfx/CMakeFiles/rebuild_cache.dir
-/home/robert/Programming/SDLU/bin/lib/sdl2_gfx/CMakeFiles/sdl2_gfx.dir
-/home/robert/Programming/SDLU/bin/lib/sdl2_gfx/CMakeFiles/edit_cache.dir
-/home/robert/Programming/SDLU/bin/examples/CMakeFiles/rebuild_cache.dir
-/home/robert/Programming/SDLU/bin/examples/CMakeFiles/sdlu_example.dir
-/home/robert/Programming/SDLU/bin/examples/CMakeFiles/edit_cache.dir
