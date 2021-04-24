@@ -11,10 +11,10 @@ add_library(sdl2_gfx
 )
 
 target_include_directories(sdl2_gfx PUBLIC 
-	${SDL2_INCLUDE_DIRS}
 	"include"
+	${SDL2_INCLUDE_DIRS}
 )
 
 target_link_libraries(sdl2_gfx PUBLIC 
-	SDL2
+	${SDL2_PREFIX}SDL2 ${SDL2_PREFIX}SDL2main
 )
