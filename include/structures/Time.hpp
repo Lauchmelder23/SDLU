@@ -421,4 +421,39 @@ inline Time Time::Now()
 	return Create(std::chrono::steady_clock::now().time_since_epoch());
 }
 
+
+extern Time Seconds(float seconds);
+extern Time Milliseconds(Int32 milliseconds);
+extern Time Microseconds(Int64 microseconds);
+
+extern bool operator==(const Time& left, const Time& right);
+extern bool operator!=(const Time& left, const Time& right);
+extern bool operator<(const Time& left, const Time& right);
+extern bool operator>(const Time& left, const Time& right);
+extern bool operator<=(const Time& left, const Time& right);
+extern bool operator>=(const Time& left, const Time& right);
+
+extern Time operator-(const Time& right);
+extern Time operator+(const Time& left, const Time& right);
+extern Time& operator+=(Time& left, const Time& right);
+
+extern Time operator-(const Time& left, const Time& right);
+extern Time& operator-=(Time& left, const Time& right);
+
+extern Time operator*(const Time& left, float right);
+extern Time operator*(const Time& left, Int64 right);
+extern Time operator*(float left, const Time& right);
+extern Time operator*(Int64 left, const Time& right);
+extern Time& operator*=(Time& left, float right);
+extern Time& operator*=(Time& left, Int64 right);
+
+extern Time operator/(const Time& left, float right);
+extern Time operator/(const Time& left, Int64 right);
+extern Time& operator/=(Time& left, float right);
+extern Time& operator/=(Time& left, Int64 right);
+extern float operator/(const Time& left, const Time& right);
+
+extern Time operator%(const Time& left, const Time& right);
+extern Time& operator%=(Time& left, const Time& right);
+
 SDLU_END
