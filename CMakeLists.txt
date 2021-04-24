@@ -4,6 +4,12 @@ project(sdlu)
 
 find_package(SDL2 CONFIG REQUIRED)
 
+if(WIN32)
+    set(SDL2_PREFIX SDL2::)
+else()
+    set(SDL2_PREFIX "")
+endif()
+
 option(BUILD_EXAMPLES "Builds the example projects" ON)
 
 add_subdirectory(lib/sdl2_gfx)
@@ -22,13 +28,11 @@ add_library(sdlu
 
 target_include_directories(sdlu PUBLIC
     "include"
-    ${SDL2_INCLUDE_DIRS}
     sdl2_gfx
 )
 
 target_link_libraries(sdlu PUBLIC
     sdl2_gfx
-    SDL2 SDL2main
 )
 
 if(BUILD_EXAMPLES)
